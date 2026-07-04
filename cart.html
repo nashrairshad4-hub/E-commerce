@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Shopping Cart — Lumora</title>
+<meta name="description" content="Review the items in your Lumora shopping cart, apply a coupon code, and proceed to secure checkout.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="preloader" aria-hidden="true">
+  <div class="loader-ring"></div>
+  <span class="preloader-text">Lumora</span>
+</div>
+
+<div class="aurora-bg" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<header>
+  <nav class="navbar" aria-label="Primary navigation">
+    <a href="index.html" class="logo" aria-label="Lumora home">
+      <i class="fa-solid fa-gem"></i>
+      <span class="logo-text">Lumora</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+      <li><a href="index.html#best-sellers">Best Sellers</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-actions">
+      <form class="search-bar glass" role="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search products…" aria-label="Search products">
+      </form>
+      <button class="icon-btn theme-toggle" aria-label="Toggle dark or light mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <a href="#" class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+      <a href="cart.html" class="icon-btn" aria-label="Shopping cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="badge cart-badge">3</span>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="products.html">Shop</a>
+  <a href="index.html#new-arrivals">New Arrivals</a>
+  <a href="index.html#best-sellers">Best Sellers</a>
+  <a href="cart.html">Cart (3)</a>
+  <button class="icon-btn theme-toggle" aria-label="Toggle dark or light mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button>
+</div>
+
+<main>
+  <div class="page-header reveal">
+    <span class="tag">Checkout</span>
+    <h1>Your Shopping Cart</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Cart</span>
+    </nav>
+  </div>
+
+  <div class="cart-layout">
+    <!-- Cart Items -->
+    <section class="cart-list glass reveal" aria-label="Cart items">
+
+      <div class="cart-item" data-price="89.00">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="Aero Runner Sneakers">
+        <div class="cart-item-info">
+          <h4>Aero Runner Sneakers</h4>
+          <span>Size: 42 &nbsp;|&nbsp; Color: White/Coral</span>
+          <span class="cart-item-price">$89.00</span>
+        </div>
+        <div class="qty-selector">
+          <button class="qty-minus" aria-label="Decrease quantity">−</button>
+          <span class="qty-value">1</span>
+          <button class="qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="remove-btn" aria-label="Remove item"><i class="fa-solid fa-trash"></i></button>
+      </div>
+
+      <div class="cart-item" data-price="149.00">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="Orbit Chrono Watch">
+        <div class="cart-item-info">
+          <h4>Orbit Chrono Watch</h4>
+          <span>Color: Tan Leather</span>
+          <span class="cart-item-price">$149.00</span>
+        </div>
+        <div class="qty-selector">
+          <button class="qty-minus" aria-label="Decrease quantity">−</button>
+          <span class="qty-value">1</span>
+          <button class="qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="remove-btn" aria-label="Remove item"><i class="fa-solid fa-trash"></i></button>
+      </div>
+
+      <div class="cart-item" data-price="119.00">
+        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=200&q=80" alt="Pulse Wireless Headphones">
+        <div class="cart-item-info">
+          <h4>Pulse Wireless Headphones</h4>
+          <span>Color: Matte Black</span>
+          <span class="cart-item-price">$119.00</span>
+        </div>
+        <div class="qty-selector">
+          <button class="qty-minus" aria-label="Decrease quantity">−</button>
+          <span class="qty-value">1</span>
+          <button class="qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="remove-btn" aria-label="Remove item"><i class="fa-solid fa-trash"></i></button>
+      </div>
+
+      <div class="cart-empty" style="display:none;">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added anything yet. Let's fix that.</p>
+        <a href="products.html" class="btn btn-primary">Start Shopping</a>
+      </div>
+    </section>
+
+    <!-- Order Summary -->
+    <aside class="summary-card glass reveal" aria-label="Order summary">
+      <h3>Order Summary</h3>
+
+      <div class="coupon-row">
+        <input type="text" placeholder="Coupon code (try LUMORA10)" aria-label="Coupon code">
+        <button type="button">Apply</button>
+      </div>
+      <p class="coupon-msg" aria-live="polite"></p>
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span class="summary-subtotal">$357.00</span>
+      </div>
+      <div class="summary-row discount" style="display:none;">
+        <span>Discount</span>
+        <span class="summary-discount">-$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Estimated Tax</span>
+        <span class="summary-tax">$28.56</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span class="summary-shipping">$6.99</span>
+      </div>
+      <div class="summary-row total">
+        <span>Grand Total</span>
+        <span class="summary-total">$392.55</span>
+      </div>
+
+      <a href="#" class="btn btn-primary btn-block" style="margin-top:1.4rem;"><i class="fa-solid fa-lock"></i> Proceed to Checkout</a>
+      <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> Secure checkout · 256-bit SSL encryption</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><i class="fa-solid fa-gem"></i><span class="logo-text">Lumora</span></a>
+      <p>Modern essentials for the way you actually live — thoughtfully sourced, sustainably packed, and delivered fast.</p>
+      <div class="social-links">
+        <a href="#" class="glass" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="glass" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="glass" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="glass" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul class="footer-links">
+        <li><a href="products.html">All Products</a></li>
+        <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+        <li><a href="index.html#best-sellers">Best Sellers</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul class="footer-links">
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-location-dot"></i><span>123 Aurora Avenue, Suite 400, San Francisco, CA</span></li>
+        <li><i class="fa-solid fa-phone"></i><span>+1 (555) 012-3456</span></li>
+        <li><i class="fa-solid fa-envelope"></i><span>hello@lumora-shop.com</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lumora. All rights reserved.</span>
+    <div class="payments">
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-brands fa-cc-paypal"></i>
+      <i class="fa-brands fa-cc-apple-pay"></i>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="js/script.js"></script>
+</body>
+</html>

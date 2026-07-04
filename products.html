@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Products — Lumora</title>
+<meta name="description" content="Browse Lumora's full catalog of fashion, footwear, accessories and electronics. Filter by category, price and color to find your perfect fit.">
+<meta name="keywords" content="ecommerce, shop, products, fashion, shoes, electronics, lumora">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="preloader" aria-hidden="true">
+  <div class="loader-ring"></div>
+  <span class="preloader-text">Lumora</span>
+</div>
+
+<div class="aurora-bg" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<header>
+  <nav class="navbar" aria-label="Primary navigation">
+    <a href="index.html" class="logo" aria-label="Lumora home">
+      <i class="fa-solid fa-gem"></i>
+      <span class="logo-text">Lumora</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html" class="active">Shop</a></li>
+      <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+      <li><a href="index.html#best-sellers">Best Sellers</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-actions">
+      <form class="search-bar glass" role="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search products…" aria-label="Search products">
+      </form>
+      <button class="icon-btn theme-toggle" aria-label="Toggle dark or light mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <a href="#" class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+      <a href="cart.html" class="icon-btn" aria-label="Shopping cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="badge cart-badge">3</span>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="categories-strip">
+    <a href="#" class="category-chip active"><i class="fa-solid fa-border-all"></i> All</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-shirt"></i> Fashion</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-shoe-prints"></i> Footwear</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-mobile-screen"></i> Electronics</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-bag-shopping"></i> Bags</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-gem"></i> Accessories</a>
+    <a href="#" class="category-chip"><i class="fa-solid fa-headphones"></i> Audio</a>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="products.html">Shop</a>
+  <a href="index.html#new-arrivals">New Arrivals</a>
+  <a href="index.html#best-sellers">Best Sellers</a>
+  <a href="cart.html">Cart (3)</a>
+  <button class="icon-btn theme-toggle" aria-label="Toggle dark or light mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button>
+</div>
+
+<main>
+  <div class="page-header reveal">
+    <span class="tag">Catalog</span>
+    <h1>Shop All Products</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Shop</span>
+    </nav>
+  </div>
+
+  <div class="products-layout">
+    <!-- Filters Sidebar -->
+    <aside class="filters-panel glass reveal" aria-label="Product filters">
+      <div class="filter-block">
+        <h4><i class="fa-solid fa-layer-group"></i> Category</h4>
+        <label class="filter-option"><input type="checkbox" checked> Fashion</label>
+        <label class="filter-option"><input type="checkbox"> Footwear</label>
+        <label class="filter-option"><input type="checkbox"> Electronics</label>
+        <label class="filter-option"><input type="checkbox"> Bags</label>
+        <label class="filter-option"><input type="checkbox"> Accessories</label>
+        <label class="filter-option"><input type="checkbox"> Audio</label>
+      </div>
+
+      <div class="filter-block">
+        <h4><i class="fa-solid fa-dollar-sign"></i> Price Range</h4>
+        <input type="range" min="0" max="300" value="180" class="price-range" aria-label="Maximum price">
+        <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-muted);margin-top:.5rem;">
+          <span>$0</span><span>$300</span>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h4><i class="fa-solid fa-palette"></i> Color</h4>
+        <div class="color-swatches">
+          <span class="color-swatch active" style="background:#1a1836" title="Black"></span>
+          <span class="color-swatch" style="background:#ff6b6b" title="Coral"></span>
+          <span class="color-swatch" style="background:#4ecdc4" title="Teal"></span>
+          <span class="color-swatch" style="background:#ffd93d" title="Gold"></span>
+          <span class="color-swatch" style="background:#a78bfa" title="Violet"></span>
+          <span class="color-swatch" style="background:#f5f3ff;border:1px solid #ccc" title="White"></span>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h4><i class="fa-solid fa-star"></i> Rating</h4>
+        <label class="filter-option"><input type="checkbox"> 4★ &amp; above</label>
+        <label class="filter-option"><input type="checkbox"> 3★ &amp; above</label>
+      </div>
+
+      <button class="btn btn-primary btn-block"><i class="fa-solid fa-filter"></i> Apply Filters</button>
+    </aside>
+
+    <!-- Products -->
+    <div>
+      <div class="products-toolbar glass reveal">
+        <span style="font-size:.88rem;color:var(--text-muted);">Showing <strong style="color:var(--text-primary)">1–8</strong> of 48 products</span>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <select class="sort-select" aria-label="Sort products">
+            <option value="popular">Sort: Popularity</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+          </select>
+          <div class="view-toggle">
+            <button class="active" data-view="grid" aria-label="Grid view"><i class="fa-solid fa-table-cells"></i></button>
+            <button data-view="list" aria-label="List view"><i class="fa-solid fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid reveal">
+        <article class="product-card glass" data-price="89">
+          <div class="product-media">
+            <span class="badge-discount">-20%</span>
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" alt="Aero Runner Sneakers" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Footwear</span>
+            <h3 class="product-name">Aero Runner Sneakers</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>(214)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$89.00</span><span class="price-old">$112.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="149">
+          <div class="product-media">
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80" alt="Orbit Chrono Watch" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Accessories</span>
+            <h3 class="product-name">Orbit Chrono Watch</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>(98)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$149.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="119">
+          <div class="product-media">
+            <span class="badge-discount">-15%</span>
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&q=80" alt="Pulse Wireless Headphones" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Audio</span>
+            <h3 class="product-name">Pulse Wireless Headphones</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>(431)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$119.00</span><span class="price-old">$140.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="174">
+          <div class="product-media">
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" alt="Nova Leather Tote" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Bags</span>
+            <h3 class="product-name">Nova Leather Tote</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>(76)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$174.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="64">
+          <div class="product-media">
+            <span class="badge-new">New</span>
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80" alt="Drift Oversized Knit" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Fashion</span>
+            <h3 class="product-name">Drift Oversized Knit</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>(12)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$64.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="229">
+          <div class="product-media">
+            <span class="badge-new">New</span>
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&q=80" alt="Pulse Smartwatch X2" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h3 class="product-name">Pulse Smartwatch X2</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>(31)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$229.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="96">
+          <div class="product-media">
+            <span class="badge-discount">-30%</span>
+            <button class="wishlist-btn active" aria-label="Remove from wishlist"><i class="fa-solid fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" alt="Metro Crossbody Bag" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Bags</span>
+            <h3 class="product-name">Metro Crossbody Bag</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>(602)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$96.00</span><span class="price-old">$137.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+
+        <article class="product-card glass" data-price="45">
+          <div class="product-media">
+            <span class="badge-discount">-10%</span>
+            <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&q=80" alt="Boom Mini Speaker" loading="lazy">
+            <button class="quick-view"><i class="fa-solid fa-eye"></i> Quick View</button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Audio</span>
+            <h3 class="product-name">Boom Mini Speaker</h3>
+            <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>(275)</span></div>
+            <div class="product-price-row"><div><span class="price-current">$45.00</span><span class="price-old">$50.00</span></div><button class="add-cart-btn" aria-label="Add to cart"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pagination reveal">
+        <button class="active" aria-label="Page 1">1</button>
+        <button aria-label="Page 2">2</button>
+        <button aria-label="Page 3">3</button>
+        <button aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><i class="fa-solid fa-gem"></i><span class="logo-text">Lumora</span></a>
+      <p>Modern essentials for the way you actually live — thoughtfully sourced, sustainably packed, and delivered fast.</p>
+      <div class="social-links">
+        <a href="#" class="glass" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="glass" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="glass" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="glass" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul class="footer-links">
+        <li><a href="products.html">All Products</a></li>
+        <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+        <li><a href="index.html#best-sellers">Best Sellers</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul class="footer-links">
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-location-dot"></i><span>123 Aurora Avenue, Suite 400, San Francisco, CA</span></li>
+        <li><i class="fa-solid fa-phone"></i><span>+1 (555) 012-3456</span></li>
+        <li><i class="fa-solid fa-envelope"></i><span>hello@lumora-shop.com</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lumora. All rights reserved.</span>
+    <div class="payments">
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-brands fa-cc-paypal"></i>
+      <i class="fa-brands fa-cc-apple-pay"></i>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="js/script.js"></script>
+</body>
+</html>

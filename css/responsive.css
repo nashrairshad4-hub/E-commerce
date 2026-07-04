@@ -1,0 +1,90 @@
+/* ==========================================================================
+   LUMORA — Responsive Rules
+   Breakpoints: >=1280 desktop (base) / 1024 tablet-landscape / 768 tablet
+   / 480 mobile
+   ========================================================================== */
+
+/* --------------------------- Large desktop tighten ------------------------ */
+@media (max-width:1200px){
+  .product-grid{ grid-template-columns:repeat(3,1fr); }
+  .reviews-track{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* --------------------------------- Tablet -------------------------------- */
+@media (max-width:1024px){
+  .nav-links{ display:none; }
+  .search-bar{ min-width:160px; }
+  .hero{ flex-direction:column; text-align:center; padding-top:2.5rem; }
+  .hero-content{ max-width:100%; }
+  .hero p{ margin-left:auto; margin-right:auto; }
+  .hero-actions{ justify-content:center; }
+  .hero-stats{ justify-content:center; }
+  .hero-visual{ min-height:340px; }
+
+  .footer-grid{ grid-template-columns:1fr 1fr; row-gap:2.5rem; }
+
+  .products-layout{ grid-template-columns:220px 1fr; }
+  .cart-layout{ grid-template-columns:1fr; }
+  .summary-card{ position:static; }
+}
+
+/* ----------------------------- Tablet / small ----------------------------- */
+@media (max-width:860px){
+  .product-grid{ grid-template-columns:repeat(2,1fr); }
+  .products-layout{ grid-template-columns:1fr; }
+  .filters-panel{ position:static; margin-bottom:1.5rem; }
+  .filters-panel.collapsed .filter-body{ display:none; }
+}
+
+/* ---------------------------------- Mobile -------------------------------- */
+@media (max-width:768px){
+  .container, .section-pad{ padding-left:6%; padding-right:6%; }
+
+  .hamburger{ display:flex; }
+  .search-bar{ display:none; }
+
+  .hero{ min-height:auto; padding:2.5rem 6% 3.5rem; }
+  .hero h1{ font-size:2.2rem; }
+  .hero-stats{ gap:1.4rem; flex-wrap:wrap; }
+
+  .section-head{ flex-direction:column; align-items:flex-start; }
+
+  .reviews-track{ grid-template-columns:1fr; }
+
+  .newsletter{ margin:0 6%; padding:2.6rem 1.6rem; }
+  .newsletter-form{ flex-direction:column; }
+  .newsletter-form input, .newsletter-form button{ width:100%; }
+
+  .footer-grid{ grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+
+  .cart-item{ grid-template-columns:70px 1fr; grid-template-areas:"img info" "img qty" "img price"; row-gap:.6rem; }
+  .cart-item img{ grid-area:img; width:70px; height:70px; }
+  .cart-item-info{ grid-area:info; }
+  .qty-selector{ grid-area:qty; }
+  .cart-item .remove-btn{ position:absolute; top:1rem; right:1rem; }
+  .cart-item{ position:relative; }
+  .cart-item-price{ grid-area:price; }
+
+  .back-to-top{ bottom:1.2rem; right:1.2rem; width:42px; height:42px; }
+}
+
+/* ----------------------------- Small mobile -------------------------------- */
+@media (max-width:480px){
+  .product-grid{ grid-template-columns:1fr 1fr; gap:.9rem; }
+  .hero h1{ font-size:1.85rem; }
+  .hero-card{ width:100%; }
+  .logo-text{ font-size:1.2rem; }
+  .icon-btn{ width:38px; height:38px; }
+  .nav-actions{ gap:.6rem; }
+  .section-pad{ padding-top:3.5rem; padding-bottom:3.5rem; }
+  .products-toolbar{ flex-direction:column; align-items:stretch; }
+  .coupon-row{ flex-direction:column; }
+  .toast-wrap{ left:1rem; right:1rem; }
+  .toast{ min-width:0; width:100%; }
+}
+
+/* ------------------------------ Print (bonus) ------------------------------ */
+@media print{
+  .navbar, .footer, .back-to-top, .aurora-bg, #particle-canvas, .mobile-menu{ display:none !important; }
+}
